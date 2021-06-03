@@ -1,7 +1,8 @@
 package com.gildedrose
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+
 
 class GildedRoseTest {
 
@@ -79,8 +80,8 @@ class GildedRoseTest {
         val backstagePass = "Backstage passes to a TAFKAL80ETC concert"
         givenItem(backstagePass, sellIn, startQuality)
         whenWeUpdateTheQuality()
-        assertEquals("quality for sellIn " + sellIn, expectedQuality, app.items[0].quality)
-        assertEquals("new sellIn for old sellIn " + sellIn, sellIn - 1, app.items[0].sellIn)
+        assertEquals(expectedQuality, app.items[0].quality)
+        assertEquals(sellIn - 1, app.items[0].sellIn)
     }
 
     private fun givenItem(name: String, sellIn: Int, quality: Int) {
@@ -93,8 +94,8 @@ class GildedRoseTest {
 
     private fun thenItemHas(name: String, sellIn: Int, quality: Int) {
         assertEquals(name, app.items[0].name)
-        assertEquals("sellIn", sellIn, app.items[0].sellIn)
-        assertEquals("quality", quality, app.items[0].quality)
+        assertEquals(sellIn, app.items[0].sellIn)
+        assertEquals(quality, app.items[0].quality)
     }
 }
 
